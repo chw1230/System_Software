@@ -1,0 +1,20 @@
+     1                                  section .data
+     2 00000000 48656C6C6F2C20776F-         msg db 'Hello, world!', 0x0a    ; 출력할 문자열 + 줄바꿈
+     3 00000009 726C64210A         
+     4                                      len equ $ - msg                 ; 문자열 길이 계산
+     5                                  
+     6                                  section .text
+     7                                      global _start
+     8                                  
+     9                                  _start:
+    10                                      ; write(1, msg, len)
+    11 00000000 B804000000                  mov eax, 4      ; 시스템 호출 번호 (sys_write)
+    12 00000005 BB01000000                  mov ebx, 1      ; 파일 디스크립터 (stdout)
+    13 0000000A B9[00000000]                mov ecx, msg    ; 출력할 문자열 주소
+    14 0000000F BA0E000000                  mov edx, len    ; 문자열 길이
+    15 00000014 CD80                        int 0x80        ; 커널 호출
+    16                                  
+    17                                      ; exit(0)
+    18 00000016 B801000000                  mov eax, 1      ; 시스템 호출 번호 (sys_exit)
+    19 0000001B 31DB                        xor ebx, ebx    ; 반환 코드 0
+    20 0000001D CD80                        int 0x80
