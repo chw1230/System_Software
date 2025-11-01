@@ -53,3 +53,43 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# --- Build artifacts (ASM/C toolchain) ---
+*.o
+*.obj
+*.out
+*.exe
+*.bin
+*.elf
+*.map
+*.lst
+*.log
+*.tmp
+
+# Libraries
+*.a
+*.so
+*.dll
+*.lib
+*.dylib
+*.dSYM/
+
+# Archives / packages
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+
+# Editor/IDE
+.vscode/
+.idea/
+*.iml
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Project-specific (예: 수업 제공 샘플/압축본)
+asm-io-sample-programs.zip
+asm_io.o
